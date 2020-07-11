@@ -1,0 +1,40 @@
+﻿@page
+@model rzr.Pages.Grouper.IndexModel
+
+@{
+    ViewData["Title"] = "Current Experiment Participants";
+}
+
+<h1>Current Experiment Participants</h1>
+
+<p>
+    <a asp-page="Create">Add Participant to Experiment</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExperimentParticipant[0].Experiment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExperimentParticipant[0].Participant)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ExperimentParticipant) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experiment.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Participant.NameNumber)
+            </td>
+            <td>
+                <a asp-page="./Delete" asp-route-ExperimentID="@item.ExperimentId" asp-route-ParticipantID="@item.ParticipantId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+﻿@page
+@model rzr.Pages.Experiments.IndexModel
+
+@{
+    ViewData["Title"] = "Experiments";
+}
+
+<h1>Experiments</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].ActiveState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].BlackoutTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].Jitter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].Period)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experiment[0].Repitions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Experiment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlackoutTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jitter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Period)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Repitions)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

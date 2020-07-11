@@ -1,0 +1,60 @@
+﻿@page
+@model rzr.Pages.Participants.IndexModel
+
+@{
+    ViewData["Title"] = "Participants";
+}
+
+<h1>All Participants</h1>
+
+<p>
+    <a asp-page="Create">Add Participant</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant[0].SurveyLinkNormal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participant[0].SurveyLinkDenseSampling)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Participant) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyLinkNormal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurveyLinkDenseSampling)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

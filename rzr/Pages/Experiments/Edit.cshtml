@@ -1,0 +1,75 @@
+﻿@page
+@model rzr.Pages.Experiments.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Experiment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Experiment.Id" />
+            <div class="form-group">
+                <label asp-for="Experiment.Title" class="control-label"></label>
+                <input asp-for="Experiment.Title" class="form-control" />
+                <span asp-validation-for="Experiment.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.Description" class="control-label"></label>
+                <input asp-for="Experiment.Description" class="form-control" />
+                <span asp-validation-for="Experiment.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Experiment.ActiveState" /> @Html.DisplayNameFor(model => model.Experiment.ActiveState)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.StartDate" class="control-label"></label>
+                <input asp-for="Experiment.StartDate" class="form-control" />
+                <span asp-validation-for="Experiment.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.StartTime" class="control-label"></label>
+                <input asp-for="Experiment.StartTime" class="form-control" />
+                <span asp-validation-for="Experiment.StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.BlackoutTime" class="control-label"></label>
+                <input asp-for="Experiment.BlackoutTime" class="form-control" />
+                <span asp-validation-for="Experiment.BlackoutTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.Jitter" class="control-label"></label>
+                <input asp-for="Experiment.Jitter" class="form-control" />
+                <span asp-validation-for="Experiment.Jitter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.Period" class="control-label"></label>
+                <input asp-for="Experiment.Period" class="form-control" />
+                <span asp-validation-for="Experiment.Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experiment.Repitions" class="control-label"></label>
+                <input asp-for="Experiment.Repitions" class="form-control" />
+                <span asp-validation-for="Experiment.Repitions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

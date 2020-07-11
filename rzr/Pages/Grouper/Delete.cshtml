@@ -1,0 +1,34 @@
+﻿@page
+@model rzr.Pages.Grouper.DeleteModel
+
+@{
+    ViewData["Title"] = "Remove Participant from Experiment";
+}
+
+    <h1>Remove Participant from Experiment</h1>
+
+<div>
+    <h4>Are you sure you want to remove this participant?</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExperimentParticipant.Experiment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExperimentParticipant.Experiment.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ExperimentParticipant.Participant)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ExperimentParticipant.Participant.NameNumber)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ExperimentParticipant.ExperimentId" />
+        <input type="hidden" asp-for="ExperimentParticipant.ParticipantId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
